@@ -10,14 +10,17 @@
  *
  */
 function deleteDigit(n) {
-  let arr = n.toString()
+  const arr = n.toString()
     .split('');
-  let res = [];
-  let min = Math.min.apply(null, arr);
+  const res = [];
+  const min = Math.min.apply(null, arr);
+  let current;
 
   for (let i = 0; i < arr.length; i++) {
-    let current = parseInt(arr[i]);
+    // eslint-disable-next-line radix
+    current = parseInt(arr[i]);
     if (current === min) {
+      // eslint-disable-next-line radix
       if (current === parseInt(arr[i - 1])) {
         res.push(current);
       }
@@ -27,7 +30,6 @@ function deleteDigit(n) {
   }
 
   return Number(res.join(''));
-
 }
 
 module.exports = deleteDigit;
